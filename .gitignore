@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#service file because secreat api key
+/src/app/services/weather-service.service.ts

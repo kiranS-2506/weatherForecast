@@ -1,0 +1,357 @@
+/* CSS Variables for Easy Theming (Simple Customization) */
+:root {
+  --primary-bg: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* New: Soft blue gradient for a light sky feel */
+  --card-bg: rgba(255, 255, 255, 0.8); /* New: Semi-transparent white for cleaner glassmorphism */
+  --text-color: #0d47a1; /* New: Dark blue for better contrast and readability */
+  --accent-color: #2196f3; /* New: Modern blue for accents (buttons, highlights) */
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Softened shadow for subtlety */
+  --border-radius: 25px;
+  --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif; /* Consider adding Google Fonts like 'Roboto' for cooler typography */
+  margin: 0;
+  padding: 0;
+  background: var(--primary-bg);
+  background-attachment: fixed;
+  color: var(--text-color); /* Updated for dark text on light bg */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative; /* For potential background animations */
+}
+
+/* Optional: Subtle Cloud Animation for Cool Effect (Like Real Weather Sites) */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://example.com/clouds.png') repeat; /* Replace with a subtle cloud image or SVG */
+  opacity: 0.1;
+  animation: float 20s linear infinite; /* Slow floating effect */
+  pointer-events: none;
+}
+
+@keyframes float {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.logo .icon {
+  font-size: 2.5rem;
+}
+
+.logo h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.logo h1 span {
+  color: var(--accent-color); /* Updated accent for logo highlight */
+}
+
+/* Weather Search Container */
+.weather-search {
+  max-width: 50vw;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  column-gap: 5px;
+}
+
+.search-box input {
+  padding: 15px 20px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  width: 75vw;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.search-box button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  background: var(--accent-color); /* Updated to new accent */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.search-box button:hover {
+  background: #1976d2; /* Darker shade of accent for hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.search-box button:active {
+  transform: translateY(0);
+}
+
+/* Weather Card */
+.weather-card {
+  background-color: var(--card-bg); /* Updated to new card bg */
+  backdrop-filter: blur(15px);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Lightened border */
+  animation: fadeInScale 0.6s ease-in-out;
+  position: relative;
+}
+
+.weather-card-dis {
+  display: none;
+}
+
+/* Location Section */
+.location {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.location h2 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.location .region {
+  margin: 5px 0;
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+#date-time {
+  margin: 10px 0;
+  font-size: 1em;
+  opacity: 0.9;
+}
+
+/* Weather Info Section */
+.weather-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.temperature {
+  flex: 1;
+}
+
+.temperature h3 {
+  font-size: 3em;
+  margin: 0;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.temperature p {
+  margin: 5px 0;
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.weather-icon {
+  flex: 1;
+  text-align: center;
+}
+
+.weather-icon img {
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Additional Info Section */
+.additional-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.additional-info p {
+  margin: 0;
+  font-size: 1.1em;
+  background: rgba(255, 255, 255, 0.2); /* Lightened for new scheme */
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.additional-info strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Air Quality Colors */
+.additional-info span {
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+/* Forecast Section */
+.forecast-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.forecast-section h3 {
+  color: var(--text-color); /* Updated for visibility */
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.forecast-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.forecast-card {
+  background-color: var(--card-bg); /* Updated to match */
+  backdrop-filter: blur(15px);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: fadeInScale 0.6s ease-in-out;
+  position: relative;
+  min-width: 180px;
+  max-width: 200px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
+}
+
+.forecast-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: linear-gradient(45deg, var(--accent-color), #0d47a1, #bbdefb); /* Updated gradient with new colors */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.forecast-details p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+.forecast-details img {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.no-forecast {
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .weather-search {
+    padding: 10px;
+  }
+  
+  .weather-card, .forecast-card {
+    padding: 20px;
+  }
+  
+  .location h2 {
+    font-size: 2em;
+  }
+  
+  .temperature h3 {
+    font-size: 2.5em;
+  }
+  
+  .weather-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .additional-info, .forecast-container {
+    flex-direction: column;
+  }
+}

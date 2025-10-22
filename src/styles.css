@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://images.pexels.com/photos/2471172/pexels-photo-2471172.jpeg?_gl=1*e89j9n*_ga*MTE0NzQ0MDk5MC4xNzYxMTA5MzQx*_ga_8JE65Q40S6*czE3NjExMDkzNDEkbzEkZzEkdDE3NjExMTAwNjckajI4JGwwJGgw');
+  background-attachment: fixed; /* Keeps background fixed during scroll */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
