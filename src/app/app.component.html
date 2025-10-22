@@ -46,7 +46,6 @@
       </p>
     </div>
   </div>
-<!-- Forecast section matching your website's style -->
 <div class="forecast-section" *ngIf="UpWeatData && UpWeatData.length > 0">
   <h3>Upcoming Days Weather</h3>
   <div class="forecast-container">
@@ -62,9 +61,8 @@
     </div>
   </div>
 </div>
-<!-- Fallback if no forecast data -->
 <div *ngIf="!UpWeatData || UpWeatData.length === 0" class="no-forecast">
-  <p>No forecast data available. Please try again later.</p>
+  <p>Enter Ur City Name in Search BOX.</p>
 </div>
 
 
