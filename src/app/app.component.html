@@ -33,9 +33,10 @@
     </div>
 
     <div class="additional-info">
-      <p><strong>Humidity</strong> {{ humidity }}%</p>
-      <p><strong>Wind Speed</strong> {{windSpeed}} km/h</p>
-      <p [ngSwitch]="aqi"><strong>Air Quality</strong>
+      <p><strong style="color:aliceblue">Humidity</strong> {{ humidity }}%</p>
+      <p><strong style="color:aliceblue">Wind Speed</strong> {{windSpeed}} km/h</p>
+      <p><strong style="color:aliceblue">Condition</strong> {{condi}}</p>
+      <p [ngSwitch]="aqi"><strong style="color:aliceblue">Air Quality</strong>
         <span *ngSwitchCase=1 style="color:green"> Good </span>
         <span *ngSwitchCase=2 style="color:yellow"> Moderate </span>
         <span *ngSwitchCase=3 style="color:Orange"> Unhealthy</span>
@@ -46,7 +47,6 @@
       </p>
     </div>
   </div>
-<!-- Forecast section matching your website's style -->
 <div class="forecast-section" *ngIf="UpWeatData && UpWeatData.length > 0">
   <h3>Upcoming Days Weather</h3>
   <div class="forecast-container">
@@ -62,7 +62,6 @@
     </div>
   </div>
 </div>
-<!-- Fallback if no forecast data -->
 <div *ngIf="!UpWeatData || UpWeatData.length === 0" class="no-forecast">
   <p>No forecast data available. Please try again later.</p>
 </div>

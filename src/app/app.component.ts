@@ -22,6 +22,7 @@ export class AppComponent {
   humidity = 0
   windSpeed = 0
   name = ""
+  condi = ""
   aqi = 0
   wcard: boolean = false; // Controls visibility of the weather card
   hasSearched: boolean = false; // To track if a search has been made
@@ -32,7 +33,7 @@ export class AppComponent {
   searchWeather(){
     this.weather.fetchWeather(this.city)
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       this.coun = data.location.country
       this.region = data.location.region
       this.temp = data.current.temp_c
@@ -41,16 +42,17 @@ export class AppComponent {
       this.img = data.current.condition.icon
       this.windSpeed = data.current.wind_kph
       this.humidity = data.current.humidity
+      this.condi = data.current.condition.text
       this.name = data.location.name
       this.aqi = data.current.air_quality["us-epa-index"]
 
     })
-    this.wcard = true; // Show the weather card
-    this.hasSearched = true; // Mark that a search has been made
+    this.wcard = true;
+    this.hasSearched = true; 
     this.weather.fetcDayhWeather(this.city)
     .then(data=>{
       this.UpWeatData = data.forecastday
-      console.log(data.forecastday)
+      // console.log(data.forecastday)
       console.log(typeof(data.forecastday))
 
     })
