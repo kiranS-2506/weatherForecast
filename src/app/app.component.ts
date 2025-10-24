@@ -53,7 +53,7 @@ export class AppComponent {
     .then(data=>{
       this.UpWeatData = data.forecastday
       // console.log(data.forecastday)
-      console.log(typeof(data.forecastday))
+      // console.log(typeof(data.forecastday))
 
     })
 
